@@ -1,5 +1,6 @@
 h1 {
 	text-align: center;
+	margin-bottom: 50px;
 }
  
  .clearfix {
@@ -11,12 +12,6 @@ h1 {
 	padding: 50px;
  }
 
-img{
-	height:250px;
-	width: 500px;
-}
-.carousel img{
-	width:550px;
-	height:250px;
-
+.carousel .carousel-item {
+	width:500px !important;
 }
