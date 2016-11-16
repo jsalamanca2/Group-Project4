@@ -1,27 +1,28 @@
  $(document).ready(function(){
 	 
-	 console.log('works');
+	 displayMoods();
+	 
 	 // Create Mood object that holds the properties of each mood
 	 // ==================================================
 	 var moodObj = {
 	 	"moods" : [
 	 		{
 	 			"mood" : "Happy",
-				"genre" : "Roulette"
+				"genre" : "comedy",
 	 			"thumbnail" : "assets/images/happy.jpg",
 	 			
 	 		},
 	 		{
-	 			"mood" : "Cry Your Heart Out",
-				"genre": "Drama"
-	 			"thumbnail" : "assets/images/cry.jpg",
+	 			"mood" : "Kickass",
+				"genre": "action",
+	 			"thumbnail" : "assets/images/nostalgic.jpg",
 	 		}
 	 	]
 	 }
 	 
 	 // Display mood on the home page
 	 // ==================================================
-	 function diplayMoods() {
+	 function displayMoods() {
 	 	
 		//Iterating through each mood
 		 $.each(moodObj.moods, function (key, value) {
@@ -33,7 +34,7 @@
 		 });
 	 }
 	 
-	 displayMoods();
+	 
 
 
 });
