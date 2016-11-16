@@ -10,3 +10,13 @@ h1 {
 	color: #fff;
 	padding: 50px;
  }
+
+img{
+	height:250px;
+	width: 500px;
+}
+.carousel img{
+	width:550px;
+	height:250px;
+
+}
