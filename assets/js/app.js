@@ -6,18 +6,18 @@
 	 // Mood object function that holds the properties of each mood
 	 // =========================================================
 	 
-	 function Mood (moodName, genre, thumbnail) {
-		 this.moodName = moodName;
-		 this.genre = genre;
-		 this.thumbnail = thumbnail;
+	 function Mood (name, genRe, thumbURL) {
+		 this.moodName = name;							    //this.moodName sets the moodName within this function to the argument
+		 this.genre = genRe;
+		 this.thumbnail = thumbURL;
 		 		 
 		 //Method to display a mood's thumbnail
 		 this.displayMood = function() {
-			 var moodThumb = $('<img>');
-			 moodThumb.attr('src',this.thumbnail);
-			 moodThumb.attr('data-caption', this.moodName)
-			 moodThumb.addClass('mood');
-			 $('.moodThumbs').append(moodThumb);
+			 var moodThumb = $('<img>');					//Create the a new image object
+			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
+			 moodThumb.attr('data-caption', this.moodName)  //Set the data-caption attribute to the name of the object
+			 moodThumb.addClass('mood');					//Add the class 'mood' to the image 
+			 $('.moodThumbs').append(moodThumb);			//Append to image to the page
 			 
 			 //Call moodClicked function when thumbnail is clicked
 			 moodThumb.on('click', moodClicked);
@@ -26,11 +26,11 @@
 	 
 	 //=============Add Mood Objects function========================
 	 function addMood(moodName, genre, thumbnail) {
-		 moods[moods.length] = new Mood();
-		 moods[moods.length-1].moodName = moodName;
+		 moods[moods.length] = new Mood();					//Assign a new Mood object to the end of the moods array
+		 moods[moods.length-1].moodName = moodName;			//Set the properties of the new Mood object as follows
 		 moods[moods.length-1].genre = genre;
 		 moods[moods.length-1].thumbnail = thumbnail;
-		 moods[moods.length - 1].displayMood();
+		 moods[moods.length - 1].displayMood();				//Call the displayMood method to show the thumbnail image of the object
 	 }
 	 
 	 
@@ -50,7 +50,10 @@
 	 
 	 //============= Victor's Turn :-) ============
 	 function moodClicked() {
-		 alert("clicked " + $(this).attr('data-caption'));
+		 $('.moodThumbs').hide();							//Hide all the thumbnails
+		 alert("clicked " + $(this).attr('data-caption'));  //Alert the name of the iamge
+		 
+		 //========= Call API using the genre clicked ================
 		 
 	 }
 
