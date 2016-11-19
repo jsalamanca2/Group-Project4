@@ -3,3 +3,31 @@ nav .brand-logo {
   color: #444;
 }
 
+.mood img {
+	position: relative;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+    padding: 0;
+    vertical-align: text-bottom;
+    margin-bottom: 20px;
+}
+
+.mood p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: red;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  font-size: 2rem;
+  transform: translateY(-75px);
+}
+
+.mood:hover {
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.25);
+  position: relative;
+  padding: 0px;
+}
+
