@@ -6,56 +6,84 @@
 	 // Mood object function that holds the properties of each mood
 	 // =========================================================
 	 
-	 function Mood (name, genRe, thumbURL) {
+	 function Mood (name, genre, thumbURL, movieID) {
 		 this.moodName = name;							    //this.moodName sets the moodName within this function to the argument
-		 this.genre = genRe;
+		 this.genre = genre;
 		 this.thumbnail = thumbURL;
+		 this.movieID = movieID;
+
 		 		 
 		 //Method to display a mood's thumbnail
 		 this.displayMood = function() {
 			 var moodThumb = $('<img>');					//Create the a new image object
 			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
-			 moodThumb.attr('data-caption', this.genre)  //Set the data-caption attribute to the name of the object
+			 moodThumb.attr('data-caption', this.genre);
+			 moodThumb.attr('movieID', this.movieID);
+			  //Set the data-caption attribute to the name of the object
 			 $('#moodRow').append(moodThumb);
 			moodThumb.wrap("<div class='col s4 mood' id='"+this.moodName+"'>"); 
 			 			//Append image to the page
 			 
 			 //Call moodClicked function when thumbnail is clicked
-			 moodThumb.on('click', moodClicked() );
+			moodThumb.on('click', moodClicked);
 		 }
 	 }
 	 
 	 //=============Add Mood Objects function========================
-	 function addMood(moodName, genre, thumbnail) {
+	 function addMood(moodName, genre, thumbnail, movieID) {
 		 moods[moods.length] = new Mood();					//Assign a new Mood object to the end of the moods array
 		 moods[moods.length-1].moodName = moodName;			//Set the properties of the new Mood object as follows
 		 moods[moods.length-1].genre = genre;
 		 moods[moods.length-1].thumbnail = thumbnail;
+		 moods[moods.length-1].movieID = movieID;
 		 moods[moods.length - 1].displayMood();				//Call the displayMood method to show the thumbnail image of the object
 	 }
 	 
 	 
 	 //==============Please Add and displaying moods here=============
-	 addMood('happy', 'comedy', 'assets/images/happy.jpg');
-	 addMood('adventure', 'adventure', 'assets/images/adventurous.jpg');
-	 addMood('Giddy', 'animated', 'assets/images/animated.jpg');
-	 addMood('Dreamy', 'fantasy', 'assets/images/dream.jpg');
-	 addMood('Kickass', 'action', 'assets/images/kickass.jpg');
-	 addMood('Weird', 'scifi', 'assets/images/weird.jpg');
-	 addMood('Smartypants', 'documentary', 'assets/images/smart.jpg');
-	 addMood('Thriller', 'thriller', 'assets/images/thriller.jpg');
-	 addMood('Nostalgic', 'classic', 'assets/images/nostalgic.jpg');
-	 addMood('Horror', 'horror', 'assets/images/killer.png');
-	 addMood('Dancey', 'musical', 'assets/images/dancey.jpg');
-	 addMood('Drama', 'drama', 'assets/images/drama.jpg');
+	 addMood('happy', 'comedy', 'assets/images/happy.jpg', '35');
+	 addMood('adventure', 'adventure', 'assets/images/adventurous.jpg', '12');
+	 addMood('Giddy', 'animated', 'assets/images/animated.jpg', '16');
+	 addMood('Dreamy', 'fantasy', 'assets/images/dream.jpg', '14');
+	 addMood('Kickass', 'action', 'assets/images/kickass.jpg', '28');
+	 addMood('Weird', 'scifi', 'assets/images/weird.jpg', '878');
+	 addMood('Smartypants', 'documentary', 'assets/images/smart.jpg', '99');
+	 addMood('Thriller', 'thriller', 'assets/images/thriller.jpg', '53');
+	 addMood('Nostalgic', 'classic', 'assets/images/nostalgic.jpg', '36');
+	 addMood('Horror', 'horror', 'assets/images/killer.png', '27');
+	 addMood('Dancey', 'musical', 'assets/images/dancey.jpg', '10402');
+	 addMood('Drama', 'drama', 'assets/images/drama.jpg', '18');
 	 
-	 //============= Victor's Turn :-) ============
+	 //============= Victoria's Turn :-) ============
 	 function moodClicked() {
 		 console.log("clicked " + $(this).attr('data-caption'));  //Alert the name of the iamge
 		 
 		 //========= Call API using the genre clicked ================
+		 var genre = $(this).attr('data-caption');
+		 var api = "https://api.themoviedb.org/3/";
+		 var query = "discover/movie?with_genres=16&sort_by=vote_average.desc&vote_count.gte=10";
+		 var key = "&api_key=eb647f33ee48de066d1350aae8b20bc7";
+		 var url = api+query+key;
+		 console.log(url)
+		 $.ajax({url: url, method: 'GET'}).done(function(response) {
+		 	console.log(response)
+		 	var movies = response.results;
+		 	console.log(movies);
+
+		 	for (var i = 0; i < 3; i++){
+		 		if(movies[i].original_language == "en"){
+		 			moviesdbid = movies[i].id;
+
+		 			$.ajax({url: "https://api-public.guidebox.com/v1.43/US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/search/movie/id/themoviedb/"+moviesdbid,
+		 					method: 'get'}).done(function(guidebox){
+		 						console.log(guidebox);
+		 					});
+		 			console.log(movies[i].id);
+		 		}
+		 	}
+		 });
 		
-        }
+    }
 
 
-});
+});359105
