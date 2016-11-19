@@ -17,7 +17,7 @@
 			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
 			 moodThumb.attr('data-caption', this.moodName)  //Set the data-caption attribute to the name of the object
 			 moodThumb.addClass('mood');					//Add the class 'mood' to the image 
-			 $('.moodThumbs').append(moodThumb);			//Append to image to the page
+			 $('.moodThumbs').append(moodThumb);			//Append image to the page
 			 
 			 //Call moodClicked function when thumbnail is clicked
 			 moodThumb.on('click', moodClicked);
