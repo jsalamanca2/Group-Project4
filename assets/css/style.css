@@ -3,6 +3,13 @@ nav .brand-logo {
   color: #444;
 }
 
+body {
+	background: url(../images/background.png);
+	background-repeat: repeat;
+}
+
+
+/*Thumbs Style*/
 .mood img {
 	position: relative;
     width: 100%;
@@ -20,7 +27,7 @@ nav .brand-logo {
   text-transform: uppercase;
   margin: 0;
   position: absolute;
-  font-size: 2rem;
+  font-size: 150%;
   transform: translateY(-75px);
 }
 
