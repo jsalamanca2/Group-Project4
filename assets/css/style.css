@@ -9,17 +9,18 @@ body {
 }
 
 
-/*Thumbs Style*/
+/*Container + Thumbs Style*/
 .mood img {
-	position: relative;
-    width: 250px;
-    float:left;
-    height: 200px;
-    z-index: -1;
-    padding: 0;
-    vertical-align: text-bottom;
-    margin-bottom: 20px;
-    margin: 10px;
+  position: relative;
+  width: 33.33%;
+  height: 200px;
+  z-index: -1;
+  padding: 0
+  margin: 10px 10px 30px 10px;
+  vertical-align: text-bottom;
+  float: left;
+  text-align: center;
+  padding: 10px; 
 }
 
 .mood p {
@@ -39,4 +40,3 @@ body {
   position: relative;
   padding: 0px;
 }
-

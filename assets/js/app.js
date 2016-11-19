@@ -16,7 +16,7 @@
 			 var moodThumb = $('<img>');					//Create the a new image object
 			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
 			 moodThumb.attr('data-caption', this.genre)  //Set the data-caption attribute to the name of the object
-			 $('#moodRow').append(moodThumb);
+			 //$('#moodRow').append(moodThumb);
 			moodThumb.wrap("<div class='col s4 mood' id='"+this.moodName+"'>"); 
 			 			//Append image to the page
 			 
