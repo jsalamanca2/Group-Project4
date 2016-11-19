@@ -1,14 +1,5 @@
-h1 {
-	text-align: center;
-	margin-bottom: 50px;
+/*Logo Colour*/
+nav .brand-logo {
+  color: #444;
 }
- 
- .clearfix {
- 	overflow: auto;
- }
-
- .rowRou p {
-	color: #fff;
-	padding: 50px;
- }
 
