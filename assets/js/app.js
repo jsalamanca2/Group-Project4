@@ -15,12 +15,13 @@
 		 this.displayMood = function() {
 			 var moodThumb = $('<img>');					//Create the a new image object
 			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
-			 moodThumb.attr('data-caption', this.moodName)  //Set the data-caption attribute to the name of the object
-			 moodThumb.addClass('mood');					//Add the class 'mood' to the image 
-			 $('.moodThumbs').append(moodThumb);			//Append image to the page
+			 moodThumb.attr('data-caption', this.genre)  //Set the data-caption attribute to the name of the object
+			 $('#moodRow').append(moodThumb);
+			moodThumb.wrap("<div class='col s4 mood' id='"+this.moodName+"'>"); 
+			 			//Append image to the page
 			 
 			 //Call moodClicked function when thumbnail is clicked
-			 moodThumb.on('click', moodClicked);
+			 moodThumb.on('click', moodClicked() );
 		 }
 	 }
 	 
@@ -38,24 +39,23 @@
 	 addMood('happy', 'comedy', 'assets/images/happy.jpg');
 	 addMood('adventure', 'adventure', 'assets/images/adventurous.jpg');
 	 addMood('Giddy', 'animated', 'assets/images/animated.jpg');
-	 addMood('Dreamy', 'comedy', 'assets/images/dream.jpg');
-	 addMood('Kickass', 'comedy', 'assets/images/kickass.jpg');
-	 addMood('Wierd', 'comedy', 'assets/images/weird.jpg');
-	 addMood('Smartypants', 'comedy', 'assets/images/smart.jpg');
-	 addMood('Thriller', 'comedy', 'assets/images/thriller.jpg');
-	 addMood('Nostalgic', 'comedy', 'assets/images/nostalgic.jpg');
-	 addMood('Horror', 'comedy', 'assets/images/killer.png');
-	 addMood('Dancey', 'comedy', 'assets/images/dancey.jpg');
-	 addMood('Drama', 'comedy', 'assets/images/drama.jpg');
+	 addMood('Dreamy', 'fantasy', 'assets/images/dream.jpg');
+	 addMood('Kickass', 'action', 'assets/images/kickass.jpg');
+	 addMood('Weird', 'scifi', 'assets/images/weird.jpg');
+	 addMood('Smartypants', 'documentary', 'assets/images/smart.jpg');
+	 addMood('Thriller', 'thriller', 'assets/images/thriller.jpg');
+	 addMood('Nostalgic', 'classic', 'assets/images/nostalgic.jpg');
+	 addMood('Horror', 'horror', 'assets/images/killer.png');
+	 addMood('Dancey', 'musical', 'assets/images/dancey.jpg');
+	 addMood('Drama', 'drama', 'assets/images/drama.jpg');
 	 
 	 //============= Victor's Turn :-) ============
 	 function moodClicked() {
-		 $('.moodThumbs').hide();							//Hide all the thumbnails
-		 alert("clicked " + $(this).attr('data-caption'));  //Alert the name of the iamge
+		 console.log("clicked " + $(this).attr('data-caption'));  //Alert the name of the iamge
 		 
 		 //========= Call API using the genre clicked ================
-		 
-	 }
+		
+        }
 
 
 });
