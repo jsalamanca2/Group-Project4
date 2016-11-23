@@ -1,4 +1,4 @@
- $(document).ready(function(){
+$(document).ready(function (){
 	 
 	 //Global variables
 	 var moods = [];
@@ -15,11 +15,9 @@
 		 this.displayMood = function() {
 			 var moodThumb = $('<img>');					//Create the a new image object
 			 moodThumb.attr('src',this.thumbnail);			//Set the src attribute of the image to the thumbnail URL
-			 moodThumb.attr('data-caption', this.genre)  //Set the data-caption attribute to the name of the object
-			 $('#moodRow').append(moodThumb);
-			moodThumb.wrap("<div class='col s4 mood' id='"+this.moodName+"'>"); 
-			 			//Append image to the page
-			 
+			 moodThumb.attr('data-caption', this.genre) 	 //Set the data-caption attribute to the name of the object		 
+			 $('#moodRow').append(moodThumb);				//Append image to the page
+			 moodThumb.wrap("<div class='col s4 mood' id='"+this.moodName+"'>"); 	 																				 
 			 //Call moodClicked function when thumbnail is clicked
 			 moodThumb.on('click', moodClicked() );
 		 }
