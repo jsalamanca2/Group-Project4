@@ -99,7 +99,7 @@ $(document).ready(function (){
         };
     }
 
-    var getMovies = function getM(genre) {
+    var getMovies = function (genre) {
         this.genre = genre;
         var query = "https://api.themoviedb.org/3/discover/movie?api_key=79cb508f9122735b0a8e6fbc7d17e61b" +
             "&language=en-US&sort_by=popularity.desc&certification_country=US" +
@@ -113,7 +113,7 @@ $(document).ready(function (){
         });
     };
 
-    var getGenres = function getGenres() {
+    var getGenres = function () {
         var query = "https://api.themoviedb.org/3/genre/movie/list?" +
             "api_key=79cb508f9122735b0a8e6fbc7d17e61b&language=en-US";
 
@@ -124,6 +124,10 @@ $(document).ready(function (){
             return response;
         });
     };
+
+    var runQuery = function(query) {
+        $.ajax().done();
+    }
 
 
 
