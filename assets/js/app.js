@@ -86,33 +86,67 @@ $(document).ready(function (){
     }
 
 
+    var Movie = function Movie (title, genre, actors,plot, poster, stream) {
+        this.movieTitle = title;
+        this.movieGenre = genre;
+        this.movieActors = actors
+        this.moviePlot = plot;
+        this.moviePoster = poster;
+        this.movieStream = stream;
+
+        this.displayPoster = function(){
+
+        };
+    }
+
+    var getMovies = function getM(genre) {
+        this.genre = genre;
+        var query = "https://api.themoviedb.org/3/discover/movie?api_key=79cb508f9122735b0a8e6fbc7d17e61b" +
+            "&language=en-US&sort_by=popularity.desc&certification_country=US" +
+            "&include_adult=false&include_video=true&page=1&with_genres=" + genre;
+        $.ajax({
+            url: query,
+            method: 'GET'
+        }).done(function(response) {
+            console.log(response);
+            return response;
+        });
+    };
+
+    var getGenres = function getGenres() {
+        var query = "https://api.themoviedb.org/3/genre/movie/list?" +
+            "api_key=79cb508f9122735b0a8e6fbc7d17e61b&language=en-US";
+
+        $.ajax({
+            url: query,
+            method: 'GET'
+        }).done(function(response) {
+            return response;
+        });
+    };
+
+
+
+
+
+
 });
 
 
 
-function Movie (title, genre, actors,plot, poster, stream) {
-	this.movieTitle = title;
-	this.movieGenre = genre;
-	this.movieActors = actors
-	this.moviePlot = plot;
-	this.moviePoster = poster;
-	this.movieStream = stream;
-
-
-}
-
-
-// test commit comment
-
-var movie1 = new Movie()
-
- var movieAddOn = addOn
- addOn = $("#posterDiv")
- addOn.append("<p>" + movie.Title + "</p>");
- addOn.append("<p>" + movie.Genre + "</p>");
- addOn.append("<p>" + movie.Actors + "</p>");
- addOn.append("<p>" + movie.Plot + "</p>");
- addOn.append("<p>" + movie.Poster + "</p>")
+//
+//
+// // test commit comment
+//
+// var movie1 = new Movie()
+//
+//  var movieAddOn = addOn
+//  addOn = $("#posterDiv")
+//  addOn.append("<p>" + movie.Title + "</p>");
+//  addOn.append("<p>" + movie.Genre + "</p>");
+//  addOn.append("<p>" + movie.Actors + "</p>");
+//  addOn.append("<p>" + movie.Plot + "</p>");
+//  addOn.append("<p>" + movie.Poster + "</p>")
 
  //poster_path - movie poster
 
@@ -133,11 +167,11 @@ var movie1 = new Movie()
 //<ul>Plot:</ul>
 //<ul>Stream:</ul>
 
-/*
-.trailer{
-	display:none;
-}
-
-$('.details').on('click', 'button', function(){
-	$(this).closest('details').find('.trailer').slideDown();
-})
+//
+// .trailer{
+// 	display:none;
+// }
+//
+// $('.details').on('click', 'button', function(){
+// 	$(this).closest('details').find('.trailer').slideDown();
+// })
