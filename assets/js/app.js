@@ -86,4 +86,58 @@
     }
 
 
-});359105
+});
+
+
+
+function Movie (title, genre, actors,plot, poster, stream) {
+	this.movieTitle = title;
+	this.movieGenre = genre;
+	this.movieActors = actors
+	this.moviePlot = plot;
+	this.moviePoster = poster;
+	this.movieStream = stream;
+
+
+}
+
+
+// test commit comment
+
+var movie1 = new Movie()
+
+ var movieAddOn = addOn
+ addOn = $("#posterDiv")
+ addOn.append("<p>" + movie.Title + "</p>");
+ addOn.append("<p>" + movie.Genre + "</p>");
+ addOn.append("<p>" + movie.Actors + "</p>");
+ addOn.append("<p>" + movie.Plot + "</p>");
+ addOn.append("<p>" + movie.Poster + "</p>")
+
+ //poster_path - movie poster
+
+ //var data-title = comedy
+ //$("#dancey").first().data(comedy);
+
+
+
+ //$('.img')on.('click', happenOnClick);
+
+
+
+
+//details 
+//<li class="details">
+//<button>details</button>
+//<ul class="trailer">Trailer:</ul>
+//<ul>Plot:</ul>
+//<ul>Stream:</ul>
+
+/*
+.trailer{
+	display:none;
+}
+
+$('.details').on('click', 'button', function(){
+	$(this).closest('details').find('.trailer').slideDown();
+})
