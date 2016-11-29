@@ -61,24 +61,24 @@
 		 //========= Call API using the genre clicked ================
 		 var genre = $(this).attr('data-caption');
 		 var api = "https://api.themoviedb.org/3/";
-		 var query = "discover/movie?with_genres=16&sort_by=vote_average.desc&vote_count.gte=10";
+		 var query = "discover/movie?sort_by=popularity.desc";
 		 var key = "&api_key=eb647f33ee48de066d1350aae8b20bc7";
 		 var url = api+query+key;
-		 console.log(url)
+		 
 		 $.ajax({url: url, method: 'GET'}).done(function(response) {
 		 	console.log(response)
 		 	var movies = response.results;
-		 	console.log(movies);
+		 	
 
 		 	for (var i = 0; i < 3; i++){
-		 		if(movies[i].original_language == "en"){
+		 		if(movies[i].vote_average < 7){
 		 			moviesdbid = movies[i].id;
 
-		 			$.ajax({url: "https://api-public.guidebox.com/v1.43/US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/search/movie/id/themoviedb/"+moviesdbid,
+		 			$.ajax({url: "https://api.themoviedb.org/3/discover/movie?with_genres=18&sort_by=popularity.desc"+moviesdbid,
 		 					method: 'get'}).done(function(guidebox){
-		 						console.log(guidebox);
+		 						
 		 					});
-		 			console.log(movies[i].id);
+		 			
 		 		}
 		 	}
 		 });
@@ -90,6 +90,8 @@
 
 
 
+
+/*
 function Movie (title, genre, actors,plot, poster, stream) {
 	this.movieTitle = title;
 	this.movieGenre = genre;
@@ -114,7 +116,11 @@ var movie1 = new Movie()
  addOn.append("<p>" + movie.Plot + "</p>");
  addOn.append("<p>" + movie.Poster + "</p>")
 
- //poster_path - movie poster
+
+
+//poster = poster_path
+//title - title
+//overview - plot
 
  //var data-title = comedy
  //$("#dancey").first().data(comedy);
