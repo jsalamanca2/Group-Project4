@@ -1,3 +1,4 @@
+/*deadpool*/
 *{box-sizing: border-box;}
 body, html { height: 100%; min-height: 100%; }
 body {
@@ -16,7 +17,7 @@ body {
    width: 700px;
    height: 350px;
    position:absolute;
-   top: 25%; left: 35%;
+   top: 28%; left: 35%;
 }
 #card{
    animation: backAn 60s infinite;
@@ -55,4 +56,34 @@ button{color:#fff;}
   0%   { background-size:100% }
   50%   { background-size:250% }
   100%   { background-size:100% }
+}
+
+/*searchbox*/
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    margin-right: 60px;
+    padding-top: 20px;
+    margin-top: 10px;
+    transition: width 0.4s ease-in-out;
+    float:right;
+}
+
+input[type=text]:focus {
+    width: 220px;
+}
+
+.grow:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        margin-left: 20px;
+}
+.grow{
+
 }

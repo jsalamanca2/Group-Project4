@@ -27,3 +27,5 @@ $(".collection-item").on("click", function() {
 
 });
 /*DEADPOOL END*/
+
+$('.carousel.carousel-slider').carousel({full_width: true});
