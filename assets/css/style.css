@@ -1,35 +1,22 @@
-/*Logo Colour*/
-nav .brand-logo {
-  color: #444;
+.logo {
+    z-index: 1000000;
 }
 
-.mood img {
-	position: relative;
-    width: 250px;
-    float:left;
-    height: 200px;
-    z-index: -1;
-    padding: 0;
-    vertical-align: text-bottom;
-    margin-bottom: 20px;
-    margin: 10px;
+header, main, footer {
+    padding-left: 150px;
 }
 
-.mood p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  color: red;
-  text-transform: uppercase;
-  margin: 0;
-  position: absolute;
-  font-size: 2rem;
-  transform: translateY(-75px);
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    }
 }
 
-.mood:hover {
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.25);
-  position: relative;
-  padding: 0px;
+.collection a.collection-item {
+    color: #888;
 }
+
+
+
 
