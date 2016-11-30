@@ -1,4 +1,4 @@
-/*deadpool*/
+/*DEADPOOL*/
 *{box-sizing: border-box;}
 body, html { height: 100%; min-height: 100%; }
 body {
@@ -31,6 +31,7 @@ body {
    box-shadow: 
      0px 45px 100px rgba(0, 0, 0, .4),
      inset 0 0 0 1000px rgba(156,27,27,.6);
+
 }
 
 #card .text-block{position:relative;z-index:2;text-shadow: 0px 3px 10px rgba(0, 0, 0, .7)}
@@ -86,4 +87,10 @@ input[type=text]:focus {
 }
 .grow{
 
+}
+/*DEADPOOL END*/
+
+/*MOVIE GRID*/
+.MOVIE-GRID {
+  margin-left: -38px; 
 }
