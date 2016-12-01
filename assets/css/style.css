@@ -8,6 +8,10 @@ body {
    font-family: 'Lato', sans-serif;
 }
 
+.mainContent {
+    margin-top: 90px;
+}
+
 .sideBar h1 {
   text-align: center;
   font-size: 48px;
@@ -66,11 +70,9 @@ input[type=text] {
     background-image: url('searchicon.png');
     background-position: 10px 10px; 
     background-repeat: no-repeat;
-    margin-right: 60px;
-    padding-top: 20px;
-    margin-top: 10px;
+    position: absolute;
+    right: 20px;
     transition: width 0.4s ease-in-out;
-    float:right;
 }
 
 input[type=text]:focus {
