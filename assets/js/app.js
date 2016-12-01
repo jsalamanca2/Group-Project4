@@ -1,3 +1,4 @@
+
 /*DEADPOOL*/
 var $poster = $('#card-container'),
   $shine = $('.shine'),
@@ -24,8 +25,12 @@ $(window).on('mousemove', function(e) {
 
 $(".collection-item").on("click", function() {
     $(".mainContent").empty();
-
 });
 /*DEADPOOL END*/
 
-$('.carousel.carousel-slider').carousel({full_width: true});
+
+
+$("heart.color_changeable").on("mouseover",function(){
+  $("heart.color_changeable").css("color,red");
+});
+
