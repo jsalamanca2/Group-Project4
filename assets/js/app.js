@@ -107,4 +107,16 @@ $(".collection-item").on("click", function() {
 });
 /*DEADPOOL END*/
 
+/*search*/
+$(document).keypress(function(event) {
+   var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        $('.search').click();
+        $('.mainContent').empty();
+   }
+}
+
+/*search end*/
+
+
 $('.carousel.carousel-slider').carousel({full_width: true});
