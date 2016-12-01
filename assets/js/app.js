@@ -73,7 +73,7 @@ $( document ).ready(function () {
 
     getGenres();
 /*DEADPOOL*/
-var $poster = $('#card-container'),
+var $poster = $('.card-container'),
   $shine = $('.shine'),
   w = $(window).width(),
   h = $(window).height();
