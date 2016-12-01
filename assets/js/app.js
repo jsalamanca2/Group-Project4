@@ -42,23 +42,29 @@ $( document ).ready(function () {
             url: query,
             method: 'GET'
         }).done( function(response) {
-            console.log(query);
+            // console.log(query);
             var movies = response.results;
-            for (var i=0; i < 15; i++) {
-                var card = $('<div>');
-                card.attr({
-                    'class': 'card-medium col s3'
-                });
-                var movieCard = $('<img>');
-                movieCard.attr({
-                   'class': 'activator',
-                    'src' : 'https://image.tmdb.org/t/p/w300' + movies[i].poster_path
-                });
-                $('.main-section').append(movieCard);
-                movieCard.wrap("<div class='card-medium col s4'></div>");
-                movieCard.wrap("<div class='card-image waves-effect waves-block waves-light'></div>");
+            console.log(movies);
+            console.log(movies);
+            for (var i=0; i < 8; i++) {
 
-            }
+                console.log(movies[i].poster_path);
+                    var card = $('<div>');
+                    card.attr({
+                        'class': 'card-medium col s3'
+                    });
+                    var movieCard = $('<img>');
+                    if(movies[i].poster_path != null) {
+                        movieCard.attr({
+                            'class': 'activator',
+                            'src' : 'https://image.tmdb.org/t/p/w185' + movies[i].poster_path
+                        });
+                    }
+
+                    $('.mainContent').append(movieCard);
+                    movieCard.wrap("<div class='card-medium col s3'></div>");
+                    movieCard.wrap("<div class='card-image waves-effect waves-block waves-light'></div>");
+                }
 
 
         });
@@ -66,11 +72,6 @@ $( document ).ready(function () {
 
 
     getGenres();
-
-
-
-
-});
 /*DEADPOOL*/
 var $poster = $('#card-container'),
   $shine = $('.shine'),
@@ -94,9 +95,13 @@ $(window).on('mousemove', function(e) {
 
   $poster.css('transform', transformPoster);
 });
+/*DEADPOOL END*/
 
 $(".collection-item").on("click", function() {
+    //$(".mainContent").children().slideUp({duration: 1500});
     $(".mainContent").empty();
+    //Materialize.showStaggeredList('#staggered-test')
+    getMovies($(this).attr('data'));
+});
 
 });
-/*DEADPOOL END*/

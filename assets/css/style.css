@@ -57,3 +57,14 @@ button{color:#fff;}
   50%   { background-size:250% }
   100%   { background-size:100% }
 }
+
+#footMash p{
+    z-index: 90000000;
+    position: absolute;
+    bottom: -5px;
+    right: 25px;
+    width: 100%;
+    text-align: right;
+}
+
+
