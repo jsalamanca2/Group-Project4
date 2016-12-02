@@ -107,4 +107,65 @@ $(".collection-item").on("click", function() {
 });
 /*DEADPOOL END*/
 
+/*search*/
+$(document).keypress(function(event) {
+   var keycode = (event.keyCode ? event.keyCode : event.which);
+    if (keycode == '13') {
+        $('#search').click();
+        $('.mainContent').empty();
+
+
+        var movie = $('#search').val();
+
+        // Here we assemble our URL 
+        
+        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&genre=drama&r=json";
+
+
+        //------
+        $.ajax({url: queryURL, method:"Get"}).done(function(response){
+            console.log(queryURL)
+            //$(".mainContent").text(JSON.stringify(response));
+            // Creates a generic div to hold the movies for now
+            var movieDiv = $('<div class="movie">');
+            // Retrieves the Rating Data
+            var rating = response.Rated;
+            var pOne = $('<p>').text( "Rating: " + rating);
+            movieDiv.append(pOne);
+            // Retrieves the release year
+            var released = response.Released;
+            var pTwo = $('<p>').text( "Released: " + released);
+            movieDiv.append(pTwo);
+            // Retrieves the plot
+            var plot = response.Plot;
+            var pThree = $('<p>').text( "Plot: " + plot);
+            movieDiv.append(pThree);
+            // Retrieves Awards of Movie
+            var awards = response.Awards;
+            var pFour = $('<p>').text("Awards:" + awards);
+            movieDiv.append(pFour);
+            // Retrieves the IMDB rating
+            var votes = response.imdbRating;
+            var pFive = $('<p>').text("IMDB Rating:" + votes);
+            movieDiv.append(pFive);
+            // Image of Poster
+            var image = $('<img>').attr("src", response.Poster);
+            movieDiv.append(image);
+            // Puts the entire Movie above the previous movies.
+            $('.mainContent').prepend(movieDiv);
+
+        });
+            //ween the dashes below to hit the queryURL with $ajax, then take the response data and display it in the div with an id of movieView
+        // YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY TOUCH THE HTML ABOVE.
+
+        //------
+
+        return false;
+    }
+
+});
+
+/*search end*/
+
+
 $('.carousel.carousel-slider').carousel({full_width: true});
