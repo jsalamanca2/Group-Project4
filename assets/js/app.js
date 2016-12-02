@@ -41,9 +41,11 @@ $( document ).ready(function () {
                 titleHead.text(movieDeets.title);
                 var description = $('<p>');
                 description.text(movieDeets.overview);
-
-
-
+                var sources = movieDeets.purchase_web_sources;
+                var sourceList = $('<ul>');
+                for (var i = 0; i < sources.length; i++) {
+                    sourceList.append("<li><a href='"+sources[i].link+"'>" + sources[i].display_name + "</a></li>");
+                }
 
                 //3. Display on page
                 $('.mainContent').empty();
@@ -51,14 +53,9 @@ $( document ).ready(function () {
                 $('.mainContent').append(movieTrailer);
                 $('.mainContent').append(titleHead);
                 $('.mainContent').append(description);
+                $('.mainContent').append(sourceList);
 
             });
-
-
-
-
-
-
 
         });
     }
