@@ -12,9 +12,10 @@ body {
     margin-top: 90px;
 }
 
-.sideBar h1 {
-  text-align: center;
-  font-size: 48px;
+.sideBar h1 a{
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 5px;
 }
 
 .card-container{
