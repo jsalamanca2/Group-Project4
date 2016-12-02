@@ -44,8 +44,8 @@ $( document ).ready(function () {
         }).done( function(response) {
             // console.log(query);
             var movies = response.results;
-            console.log(movies);
-            console.log(movies);
+            console.log("DaTA ",movies);
+
             for (var i=0; i < 8; i++) {
 
                 console.log(movies[i].poster_path);
@@ -57,7 +57,8 @@ $( document ).ready(function () {
                     if(movies[i].poster_path != null) {
                         movieCard.attr({
                             'class': 'activator',
-                            'src' : 'https://image.tmdb.org/t/p/w185' + movies[i].poster_path
+                            'src' : 'https://image.tmdb.org/t/p/w185' + movies[i].poster_path,
+                            'movieId': movies[i].id
                         });
                     }
 
@@ -106,19 +107,19 @@ $(".collection-item").on("click", function() {
 
 });
 /*DEADPOOL END*/
-var favoritemovies = [{
-  id: 'fasdfjakso4823904289',
+// var favoritemovies = [{
+//   id: 'fasdfjakso4823904289',
   
-  favorite: true;
-},
-{
-  id: 'fasdfjakso4823904289',
-  favorite: true;
-}
-]
+//   favorite: true;
+// },
+// {
+//   id: 'fasdfjakso4823904289',
+//   favorite: true;
+// }
+// ]
 
-localStorage.setItem('favoriteMovies',favoritemovies);
-var getmovies = localStorage.getItem('favoritemovies');
+// localStorage.setItem('favoriteMovies',favoritemovies);
+// var getmovies = localStorage.getItem('favoritemovies');
 
 
 
@@ -137,4 +138,4 @@ $(".favorite-btn").on("click",function(){
   }
   
 });
-$('.carousel.carousel-slider').carousel({full_width: true});
+
