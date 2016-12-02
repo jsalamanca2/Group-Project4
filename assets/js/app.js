@@ -30,11 +30,6 @@ $( document ).ready(function () {
         }).done( function(response) {
             // console.log(query);
             var movies = response.results;
-<<<<<<< HEAD
-            console.log("DaTA ",movies);
-
-=======
->>>>>>> master
             for (var i=0; i < 8; i++) {
                 console.log(movies[i]);
                 // 1. Create image element
