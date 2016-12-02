@@ -31,7 +31,7 @@ $( document ).ready(function () {
             // console.log(query);
             var movies = response.results;
             for (var i=0; i < 8; i++) {
-                console.log(movies[i]);
+                //console.log(movies[i]);
                 // 1. Create image element
                 var movieImg = $('<img>');
                 movieImg.attr({
@@ -49,13 +49,19 @@ $( document ).ready(function () {
                 cardContent.html(movies[i].original_title);
 
                 // 3. Create card reveal section
+                var cardReveal = $('<span>');
+                cardReveal.attr({
+                    'class' : 'card-title grey-text text-darken-4 gridMovie'
+                });
+                cardReveal.wrapInner("<i class='material-icons right'>close</i>");
+                cardReveal.html(movies[i].original_title);
 
 
                 // 4. Append image to mainContent
                 $('.mainContent').append(movieImg);
 
                 // 5. Wrap image with card-medium class
-                movieImg.wrap("<div class='card-medium col s3'></div>");
+                movieImg.wrap("<div class='card col s3'></div>");
 
                 // 6. Wrap image with again with waves class
                 movieImg.wrap("<div class='card-image waves-effect waves-block waves-light'></div>");
@@ -63,6 +69,8 @@ $( document ).ready(function () {
                 //$("'#"+movies[i].id+"'").add(cardContent);
                 movieImg.parent().after(cardContent);
                 cardContent.wrap("<div class='card-content'></div>");
+                cardContent.parent().after(cardReveal);
+                cardReveal.wrap("<div class='card-reveal'></div>");
             }
 
         });
