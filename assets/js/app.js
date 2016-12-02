@@ -25,12 +25,37 @@ $(window).on('mousemove', function(e) {
 
 $(".collection-item").on("click", function() {
     $(".mainContent").empty();
+
 });
 /*DEADPOOL END*/
+var favoritemovies = [{
+  id: 'fasdfjakso4823904289',
+  
+  favorite: true;
+},
+{
+  id: 'fasdfjakso4823904289',
+  favorite: true;
+}
+]
+
+localStorage.setItem('favoriteMovies',favoritemovies);
+var getmovies = localStorage.getItem('favoritemovies');
 
 
 
-$("heart.color_changeable").on("mouseover",function(){
-  $("heart.color_changeable").css("color,red");
+$(".favorite-btn").on("click",function(){
+  var e = $(this);
+  
+  if(!e.hasClass("active")) {
+    e.removeClass("inactive");
+    e.addClass("active");
+    
+    console.log('active');
+  } else {
+     e.removeClass("active");
+    e.addClass("inactive");
+    console.log('not');
+  }
+  
 });
-
