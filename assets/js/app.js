@@ -30,6 +30,11 @@ $( document ).ready(function () {
         }).done( function(response) {
             // console.log(query);
             var movies = response.results;
+<<<<<<< HEAD
+            console.log("DaTA ",movies);
+
+=======
+>>>>>>> master
             for (var i=0; i < 8; i++) {
                 console.log(movies[i]);
                 // 1. Create image element
@@ -64,7 +69,6 @@ $( document ).ready(function () {
                 movieImg.parent().after(cardContent);
                 cardContent.wrap("<div class='card-content'></div>");
             }
-
 
         });
     };
@@ -108,6 +112,37 @@ $(".collection-item").on("click", function() {
 
 });
 /*DEADPOOL END*/
+// var favoritemovies = [{
+//   id: 'fasdfjakso4823904289',
+  
+//   favorite: true;
+// },
+// {
+//   id: 'fasdfjakso4823904289',
+//   favorite: true;
+// }
+// ]
+
+// localStorage.setItem('favoriteMovies',favoritemovies);
+// var getmovies = localStorage.getItem('favoritemovies');
+
+
+
+$(".favorite-btn").on("click",function(){
+  var e = $(this);
+  
+  if(!e.hasClass("active")) {
+    e.removeClass("inactive");
+    e.addClass("active");
+    
+    console.log('active');
+  } else {
+     e.removeClass("active");
+    e.addClass("inactive");
+    console.log('not');
+  }
+  
+});
 
 /*search*/
 $(document).keypress(function(event) {
