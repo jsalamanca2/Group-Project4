@@ -17,6 +17,19 @@ $( document ).ready(function () {
         });
     };
 
+    var showMovieDetails = function() {
+        var movieID = $(this).attr('data');
+        var query = "https://api.themoviedb.org/3/movie/" + movieID +
+            "?api_key=79cb508f9122735b0a8e6fbc7d17e61b&language=en-US";
+
+        $.ajax({
+            url: query,
+            method: 'GET'
+        }).done( function(response) {
+            console.log(response.imdb_id);
+        });
+    }
+
     var getMovies = function (genre) {
         this.genre = genre;
         var query = "https://api.themoviedb.org/3/discover/movie?api_key=79cb508f9122735b0a8e6fbc7d17e61b" +
@@ -46,7 +59,12 @@ $( document ).ready(function () {
                     'id' : movies[i].id
                 });
                 cardContent.wrapInner("<i class='material-icons right'>more_vert</i>");
-                cardContent.html(movies[i].original_title);
+                var title = $('<span>');
+                title.attr({
+                    'class' : 'title',
+                    'data' : movies[i].id
+                });
+                cardContent.html(title.text(movies[i].original_title));
 
                 // 3. Create card reveal section
                 var cardReveal = $('<span>');
@@ -66,8 +84,8 @@ $( document ).ready(function () {
                 // 6. Wrap image with again with waves class
                 movieImg.wrap("<div class='card-image waves-effect waves-block waves-light'></div>");
 
-                //$("'#"+movies[i].id+"'").add(cardContent);
                 movieImg.parent().after(cardContent);
+                title.on('click', showMovieDetails);
                 cardContent.wrap("<div class='card-content'></div>");
                 cardContent.parent().after(cardReveal);
                 cardReveal.wrap("<div class='card-reveal'></div>");
