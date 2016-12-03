@@ -231,4 +231,15 @@ button{color:#fff;}
     font-size: 48px;
     font-family: 'Fugaz One', cursive;
     margin-bottom: 5px;
+
+}
+
+.movieDiv {
+    width: 700px;
+    float: right;
+}
+
+.movieDiv ul li {
+    display: inline;
+    padding-right: 10px;
 }

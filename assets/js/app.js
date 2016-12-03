@@ -161,7 +161,7 @@ $(".glow").on("click", function() {
         w = $(window).width(),
         h = $(window).height();
 
-    $('.row').on('mousemove', function (e) {
+    $(window).on('mousemove', function (e) {
         var offsetX = 0.5 - e.pageX / w,
             offsetY = 0.5 - e.pageY / h,
             dy = e.pageY - h / 2,
