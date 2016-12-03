@@ -1,15 +1,23 @@
 $( document ).ready(function () {
 
-    var moodClicked = function() {
-        $('.main-section').empty();
-        getMovies($(this).attr('data'));
-    }
+    $('.button-collapse').sideNav({
+            menuWidth: 280, // Default is 240
+            edge: 'left', // Choose the horizontal origin
+            closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+            draggable: true // Choose whether you can drag to open on touch screens
+        }
+    );
+
+    // var moodClicked = function() {
+    //     $('.mainContent').empty();
+    //     getMovies($(this).attr('data'));
+    // }
 
 
     var showMovieDetails = function() {
         var movieID = $(this).attr('data');
-        var query = "https://api-public.guidebox.com/v1.43/ " +
-            "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/search/movie/id/themoviedb/" + movieID;
+        var query = "https://api-public.guidebox.com/v1.43/" +
+            "US/rKdhlgeZEFaKGSakN4UVRcN5H62PgnnC/search/movie/id/themoviedb/" + movieID;
 
         $.ajax({
             url: query,
@@ -19,7 +27,7 @@ $( document ).ready(function () {
 
             //1. Get guidebox data on the movie
             var guideBoxQuery = "https://api-public.guidebox.com/v1.43/" +
-                "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/movie/" + response.id;
+                "US/rKdhlgeZEFaKGSakN4UVRcN5H62PgnnC/movie/" + response.id;
             $.ajax({
                 url: guideBoxQuery,
                 method: 'GET'
@@ -80,8 +88,8 @@ $( document ).ready(function () {
         }).done( function(response) {
             // console.log(query);
             var movies = response.results;
-            for (var i=0; i < 8; i++) {
-                //console.log(movies[i]);
+            for (var i=0; i < 10; i++) {
+                    console.log(movies[i]);
                 // 1. Create image element
                 var movieImg = $('<img>');
                 movieImg.attr({
@@ -101,22 +109,31 @@ $( document ).ready(function () {
                     'class' : 'title',
                     'data' : movies[i].id
                 });
-                cardContent.html(title.text(movies[i].original_title));
+
 
                 // 3. Create card reveal section
                 var cardReveal = $('<span>');
                 cardReveal.attr({
                     'class' : 'card-title grey-text text-darken-4 gridMovie'
                 });
-                cardReveal.wrapInner("<i class='material-icons right'>close</i>");
-                cardReveal.html(movies[i].original_title);
+                cardReveal.append("<i class='material-icons right'>close</i>");
+
+                var favBtn = $("<img>");
+                favBtn.attr({
+                    'src' : 'assets/images/fav.png'
+                });
+
+                cardContent.html(title.html(movies[i].original_title));
+                cardReveal.html(movies[i].overview);
+
+
 
 
                 // 4. Append image to mainContent
                 $('.mainContent').append(movieImg);
 
                 // 5. Wrap image with card-medium class
-                movieImg.wrap("<div class='card col s3'></div>");
+                movieImg.wrap("<div class='card col s2 m2'></div>");
 
                 // 6. Wrap image with again with waves class
                 movieImg.wrap("<div class='card-image waves-effect waves-block waves-light'></div>");
@@ -125,18 +142,20 @@ $( document ).ready(function () {
                 title.on('click', showMovieDetails);
                 cardContent.wrap("<div class='card-content'></div>");
                 cardContent.parent().after(cardReveal);
+                favBtn.wrap("<div class='favorite-btn'></div>");
                 cardReveal.wrap("<div class='card-reveal'></div>");
+
             }
 
         });
     };
 
 
+$(".glow").on("click", function() {
+    $(".mainContent").children().slideUp({duration: 1500});
+    getMovies($(this).attr('data'));
+});
 
-
-
-    //getGenres();
-    /*DEADPOOL*/
     var $poster = $('.card-container'),
         $shine = $('.shine'),
         w = $(window).width(),
@@ -159,48 +178,25 @@ $( document ).ready(function () {
 
         $poster.css('transform', transformPoster);
     });
-    /*DEADPOOL END*/
 
-$(".collection-item").on("click", function() {
-    $(".mainContent").children().slideUp({duration: 1500});
-    //$(".mainContent").empty();
-    //Materialize.showStaggerecdList('#staggered-test')
-    getMovies($(this).attr('data'));
+    $(".favorite-btn").on("click",function(){
+        var e = $(this);
+
+        if(!e.hasClass("active")) {
+            e.removeClass("inactive");
+            e.addClass("active");
+
+            console.log('active');
+        } else {
+            e.removeClass("active");
+            e.addClass("inactive");
+            console.log('not');
+        }
+
+    });
+
 });
 
-});
-/*DEADPOOL END*/
-// var favoritemovies = [{
-//   id: 'fasdfjakso4823904289',
-  
-//   favorite: true;
-// },
-// {
-//   id: 'fasdfjakso4823904289',
-//   favorite: true;
-// }
-// ]
-
-// localStorage.setItem('favoriteMovies',favoritemovies);
-// var getmovies = localStorage.getItem('favoritemovies');
-
-
-
-$(".favorite-btn").on("click",function(){
-  var e = $(this);
-  
-  if(!e.hasClass("active")) {
-    e.removeClass("inactive");
-    e.addClass("active");
-    
-    console.log('active');
-  } else {
-     e.removeClass("active");
-    e.addClass("inactive");
-    console.log('not');
-  }
-  
-});
 
 /*search*/
 $(document).keypress(function(event) {
@@ -263,4 +259,3 @@ $(document).keypress(function(event) {
 /*search end*/
 
 
-$('.carousel.carousel-slider').carousel({full_width: true});

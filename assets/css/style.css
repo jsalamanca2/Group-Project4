@@ -1,31 +1,77 @@
-/*DEADPOOL*/
-*{box-sizing: border-box;}
-body, html { height: 100%; min-height: 100%; }
+/* General Body */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
 body {
-   background: linear-gradient(#f6f7fc 0%, #d5e1e8 40%);
-   transform-style: preserve-3d;
-   transform: perspective(800px);
-   font-family: 'Lato', sans-serif;
+    background: linear-gradient(#f6f7fc 0%, #d5e1e8 40%);
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    font-family: 'Khula', sans-serif;
 }
 
+header, footer {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+    header, nav, footer {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width : 992px) {
+    .container {
+        width: 75%;
+        padding: 0;
+    }
+}
+
+/* Logo */
+h2 {
+    font-size: 3em;
+}
+
+/* Nav-bar search */
+nav {
+    background: transparent;
+}
+
+nav .input-field label i {
+    color: #039be5;
+    transition: color .3s;
+}
+
+.grow:hover
+{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    margin-left: 20px;
+}
+
+.button-collapse .material-icons {
+    margin: 10px 10px;
+}
+
+/* Main Content Section */
 .mainContent {
-    margin-top: 60px;
     width: 100%;
-    margin: 0;
     padding: 0;
+    margin: 10px 0px 0px 160px;
 }
 
-.sideBar h1 a{
-    text-align: center;
-    font-size: 48px;
-    margin-bottom: 5px;
-}
 
 .card-container{
-   width: 700px;
-   height: 350px;
-   position:absolute;
-   top: 28%; left: 35%;
+    width: 700px;
+    height: 350px;
+    position:absolute;
+    top: 28%; left: 35%;
 }
 
 .coolCard {
@@ -42,7 +88,7 @@ body {
 
 }
 
-.coolCard .text-block{position:relative;z-index:2;text-shadow: 0px 3px 10px rgba(0, 0, 0, .7)}
+.coolCard .text-block{ padding: 15px; position:relative;z-index:2;text-shadow: 0px 3px 10px rgba(0, 0, 0, .7)}
 .coolCard .text-block h1{font-family: 'Rubik', sans-serif; font-size:3em; margin:0; text-transform:uppercase; font-weight:700;}
 .coolCard .text-block h1 small{font-size:.4em;color:#ccc;position:relative;bottom:10px}
 .coolCard .text-block h3{margin:0;font-weight:700;}
@@ -54,96 +100,69 @@ body {
 .card-container .pg > img{height:450px;}
 
 .shine {
-position: absolute;
-top: 0; left: 0; right: 0; bottom: 0;
-background: linear-gradient(90deg, rgba(0,0,0,.4) 0%,rgba(0,0,0,.2) 60%);
-z-index: 1;
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,.4) 0%,rgba(0,0,0,.2) 60%);
+    z-index: 1;
 }
 button{color:#fff;}
 
 @keyframes backAn {
-  0%   { background-size:100% }
-  50%   { background-size:250% }
-  100%   { background-size:100% }
-}
-/*searchbox*/
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    font-size: 16px;
-    /*background-image: url('searchicon.png');*/
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 20px;
-    transition: width 0.4s ease-in-out;
+    0%   { background-size:100% }
+    50%   { background-size:250% }
+    100%   { background-size:100% }
 }
 
-input[type=text]:focus {
-    width: 220px;
-}
-/*button*/
-.grow:hover
-{
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.1);
-        margin-left: 20px;
+
+/*!*button*!*/
+.row .col {
+    padding: 0;
+    margin: 10px 5px;
 }
 
-/*DEADPOOL END*/
 
-/*MOVIE GRID*/
-.MOVIE-GRID {
-  margin-left: -38px; 
+.row .col .m3 {
+    padding: 0;
+    margin: 10px 5px;
+
+    /*height: 330px;*/
 }
 
 .card {
-    width: auto;
-}
-
-div.card.col.s3 {
     padding: 0;
-    margin: 10px 5px;
+    width: 140px;
 }
 
 .card .card-title {
     font-size: 1em;
 }
 
-@import "compass/css3";
-
-body {
-  background: #eee;
-  padding: 5em 0;
-  text-align: center;
+.card .card-content {
+    padding: 2px 2px;
 }
 
-
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+.card .card-content .card-title {
+    line-height: 5px;
 }
-html {
+
+/*@import "compass/css3";*/
+
+/*body {*/
+/*background: #eee;*/
+/*}*/
+
+
+
+.card-reveal .wrapper {
+    display: table;
     height: 100%;
-  width:100%;
+    width:100%;
 }
-body{
-  /*background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/congruent_outline.png");*/
-   text-align:center;
-  height: 100%;
-  width:100%;
+.card-reveal .container {
+    display: table-cell;
+    vertical-align: middle;
 }
-.wrapper {
-  display: table;
-  height: 100%;
-  width:100%;
-}
-.container {
-  display: table-cell;
-  vertical-align: middle;
-}
+
 .favorite-btn ,.favorite-btn.inactive:hover{
     display: block;
     margin: 8px;
@@ -153,7 +172,7 @@ body{
     line-height: 12px;
     cursor: pointer;
     z-index: 6;
-   position: absolute;
+    position: absolute;
     top:0;
     right:0;
     border: 1px solid #eaeaea;
@@ -162,46 +181,54 @@ body{
     width: 34px;
 }
 .favorite-btn:hover {
-  background: #fdcdca;
+    background: #fdcdca;
 }
 .favorite-btn:hover,.favorite-btn.inactive:hover img {
-  opacity: 1;
+    opacity: 1;
 }
 .favorite-btn img {
-  width: 100%;
-  height: auto;
-  opacity: 0.2;
+    width: 100%;
+    height: auto;
+    opacity: 0.2;
 }
 .favorite-btn:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  transition: all 0.0s;
-  
+    content: "";
+    display: block;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    transition: all 0.0s;
+
 }
 .favorite-btn:hover:before {
-   border: 1px solid #fff;
+    border: 1px solid #fff;
 }
 .active {
 
-  background: #fdcdca;
+    background: #fdcdca;
 }
 .active img {
-   opacity: 1;
+    opacity: 1;
 }
 .active:before {
-  border-color :#fdcdca;
-  transform: scale(1.5);
-  opacity: 0;
-  transition: all 0.8s ease;
+    border-color :#fdcdca;
+    transform: scale(1.5);
+    opacity: 0;
+    transition: all 0.8s ease;
 }
 .product {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
+}
+
+
+.sideBar h1 {
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Fugaz One', cursive;
+    margin-bottom: 5px;
 }
