@@ -35,7 +35,7 @@ $( document ).ready(function () {
                 });
                 var movieTrailer = $('<img>');
                 movieTrailer.attr({
-                    'src' : movieDeets.poster_120x171
+                    'src' : movieDeets.poster_240x342
                 });
                 var titleHead = $('<h2>');
                 titleHead.text(movieDeets.title);
@@ -46,14 +46,21 @@ $( document ).ready(function () {
                 for (var i = 0; i < sources.length; i++) {
                     sourceList.append("<li><a href='"+sources[i].link+"'>" + sources[i].display_name + "</a></li>");
                 }
+                var textDiv = $('<div>');
+                textDiv.attr({
+                    'class' : 'movieDiv'
+                });
 
                 //3. Display on page
                 $('.mainContent').empty();
+
+                box.append(movieTrailer);
+                box.append(textDiv);
+                textDiv.append(titleHead);
+                textDiv.append(description);
+                textDiv.append(sourceList);
+
                 $('.mainContent').append(box);
-                $('.mainContent').append(movieTrailer);
-                $('.mainContent').append(titleHead);
-                $('.mainContent').append(description);
-                $('.mainContent').append(sourceList);
 
             });
 
