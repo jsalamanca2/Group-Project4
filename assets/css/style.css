@@ -9,7 +9,10 @@ body {
 }
 
 .mainContent {
-    margin-top: 90px;
+    margin-top: 60px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .sideBar h1 a{
@@ -28,7 +31,7 @@ body {
 .coolCard {
     animation: backAn 60s infinite;
     color: #fff;
-    padding: 30px;
+    padding: 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -97,6 +100,15 @@ input[type=text]:focus {
 
 .card {
     width: auto;
+}
+
+div.card.col.s3 {
+    padding: 0;
+    margin: 10px 5px;
+}
+
+.card .card-title {
+    font-size: 1em;
 }
 
 @import "compass/css3";
