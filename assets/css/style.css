@@ -1,3 +1,24 @@
+ @media #{$small-and-down} {
+    // styles for small screens and down
+  }
+  @media #{$medium-and-up} {
+    // styles for medium screens and larger
+  }
+
+.mobileNav{
+  float:;
+}
+
+    header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+
 /*DEADPOOL*/
 *{box-sizing: border-box;}
 body, html { height: 100%; min-height: 100%; }
@@ -11,6 +32,19 @@ body {
 .mainContent {
     margin-top: 90px;
 }
+
+
+    header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+        
+
 
 .sideBar h1 a{
     text-align: center;
@@ -188,4 +222,16 @@ body{
 .product {
   display: inline-block;
   position: relative;
+}
+
+@media screen {
+  body {
+    width: 75%;
+  }
+}
+
+@media print {
+  body {
+    width: 100%;
+  }
 }

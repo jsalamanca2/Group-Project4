@@ -112,21 +112,32 @@ $(".collection-item").on("click", function() {
 
 });
 /*DEADPOOL END*/
-// var favoritemovies = [{
-//   id: 'fasdfjakso4823904289',
-  
-//   favorite: true;
-// },
-// {
-//   id: 'fasdfjakso4823904289',
-//   favorite: true;
-// }
-// ]
-
-// localStorage.setItem('favoriteMovies',favoritemovies);
-// var getmovies = localStorage.getItem('favoritemovies');
 
 
+$(".favorite-btn").on("click", function(){
+ var favoritemovies = [{
+  id: 'movieID',
+  img: '.poster_path',
+  favorite: true;
+ },
+{
+   id: 'movieID',
+   favorite: true;
+ }
+ ]
+
+ localStorage.setItem('favoriteMovies',poster_path);
+ var getmovies = localStorage.getItem('favoritemovies');
+ console.log(favoritemovies)
+
+})
+
+
+$(document).ready(function() {
+    var img = document.createElement("img");
+    img.src = localStorage.getItem("image");
+    $("#restoredImage").html(img); 
+});
 
 $(".favorite-btn").on("click",function(){
   var e = $(this);
@@ -206,3 +217,19 @@ $(document).keypress(function(event) {
 
 
 $('.carousel.carousel-slider').carousel({full_width: true});
+
+  $('.button-collapse').sideNav({
+      menuWidth: 300, // Default is 240
+      edge: 'right', // Choose the horizontal origin
+      closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+      draggable: true // Choose whether you can drag to open on touch screens
+    }
+  );
+
+
+  // Show sideNav
+  $('.button-collapse').sideNav('show');
+  // Hide sideNav
+  $('.button-collapse').sideNav('hide');
+  // Destroy sideNav
+  $('.button-collapse').sideNav('destroy');
