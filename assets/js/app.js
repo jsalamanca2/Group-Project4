@@ -5,28 +5,58 @@ $( document ).ready(function () {
         getMovies($(this).attr('data'));
     }
 
-    var getMovieDetail = function (movieID) {
-        var query = "https://api.themoviedb.org/3/movie/" + movieID +
-            "?api_key=79cb508f9122735b0a8e6fbc7d17e61b&language=en-US";
-
-        $.ajax({
-            url: query,
-            method: 'GET'
-        }).done( function(response) {
-            return response.imdb_id;
-        });
-    };
 
     var showMovieDetails = function() {
         var movieID = $(this).attr('data');
-        var query = "https://api.themoviedb.org/3/movie/" + movieID +
-            "?api_key=79cb508f9122735b0a8e6fbc7d17e61b&language=en-US";
+        var query = "https://api-public.guidebox.com/v1.43/ " +
+            "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/search/movie/id/themoviedb/" + movieID;
 
         $.ajax({
             url: query,
             method: 'GET'
         }).done( function(response) {
-            console.log(response.imdb_id);
+            console.log("Guidebox ID: " + response.id);
+
+            //1. Get guidebox data on the movie
+            var guideBoxQuery = "https://api-public.guidebox.com/v1.43/" +
+                "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/movie/" + response.id;
+            $.ajax({
+                url: guideBoxQuery,
+                method: 'GET'
+            }).done(function(response) {
+                console.log(response);
+
+
+                //2. Build the page
+                var movieDeets = response;
+                var box = $('<div>');
+                box.attr({
+                    'id' : 'movieBox'
+                });
+                var movieTrailer = $('<img>');
+                movieTrailer.attr({
+                    'src' : movieDeets.poster_120x171
+                });
+                var titleHead = $('<h2>');
+                titleHead.text(movieDeets.title);
+                var description = $('<p>');
+                description.text(movieDeets.overview);
+                var sources = movieDeets.purchase_web_sources;
+                var sourceList = $('<ul>');
+                for (var i = 0; i < sources.length; i++) {
+                    sourceList.append("<li><a href='"+sources[i].link+"'>" + sources[i].display_name + "</a></li>");
+                }
+
+                //3. Display on page
+                $('.mainContent').empty();
+                $('.mainContent').append(box);
+                $('.mainContent').append(movieTrailer);
+                $('.mainContent').append(titleHead);
+                $('.mainContent').append(description);
+                $('.mainContent').append(sourceList);
+
+            });
+
         });
     }
 
@@ -96,7 +126,7 @@ $( document ).ready(function () {
 
 
 
-    getMovieDetail(259316);
+
 
     //getGenres();
     /*DEADPOOL*/
