@@ -243,3 +243,8 @@ button{color:#fff;}
     display: inline;
     padding-right: 10px;
 }
+
+.movie img {
+    float: left;
+    margin-right: 20px;
+}

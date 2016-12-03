@@ -219,6 +219,8 @@ $(document).keypress(function(event) {
             //$(".mainContent").text(JSON.stringify(response));
             // Creates a generic div to hold the movies for now
             var movieDiv = $('<div class="movie">');
+            var image = $('<img>').attr("src", response.Poster);
+            movieDiv.append(image);
             // Retrieves the Rating Data
             var rating = response.Rated;
             var pOne = $('<p>').text( "Rating: " + rating);
@@ -240,16 +242,10 @@ $(document).keypress(function(event) {
             var pFive = $('<p>').text("IMDB Rating:" + votes);
             movieDiv.append(pFive);
             // Image of Poster
-            var image = $('<img>').attr("src", response.Poster);
-            movieDiv.append(image);
-            // Puts the entire Movie above the previous movies.
             $('.mainContent').prepend(movieDiv);
 
         });
-            //ween the dashes below to hit the queryURL with $ajax, then take the response data and display it in the div with an id of movieView
-        // YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY TOUCH THE HTML ABOVE.
 
-        //------
 
         return false;
     }
