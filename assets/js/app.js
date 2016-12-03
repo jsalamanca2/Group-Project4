@@ -16,8 +16,8 @@ $( document ).ready(function () {
 
     var showMovieDetails = function() {
         var movieID = $(this).attr('data');
-        var query = "https://api-public.guidebox.com/v1.43/ " +
-            "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/search/movie/id/themoviedb/" + movieID;
+        var query = "https://api-public.guidebox.com/v1.43/" +
+            "US/rKdhlgeZEFaKGSakN4UVRcN5H62PgnnC/search/movie/id/themoviedb/" + movieID;
 
         $.ajax({
             url: query,
@@ -27,7 +27,7 @@ $( document ).ready(function () {
 
             //1. Get guidebox data on the movie
             var guideBoxQuery = "https://api-public.guidebox.com/v1.43/" +
-                "US/KtvA54RB1hxQ6lToZTRuPEfyrFPIX0/movie/" + response.id;
+                "US/rKdhlgeZEFaKGSakN4UVRcN5H62PgnnC/movie/" + response.id;
             $.ajax({
                 url: guideBoxQuery,
                 method: 'GET'
@@ -126,7 +126,6 @@ $( document ).ready(function () {
                 cardContent.html(title.html(movies[i].original_title));
                 cardReveal.html(movies[i].overview);
 
-                //cardReveal.html(movies[i].original_title);
 
 
 
