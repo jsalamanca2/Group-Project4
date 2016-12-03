@@ -193,3 +193,22 @@ body{
   display: inline-block;
   position: relative;
 }
+/*Search Bar Css*/
+.movieSearch{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  padding: 20px;
+  font-size: 25px;
+
+}
+.searchImg{
+  width: 40%;
+  float: left;
+  padding-right: 5px;
+}
+
+
+
+
+
+
+
