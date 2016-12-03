@@ -210,7 +210,7 @@ $(document).keypress(function(event) {
 
         // Here we assemble our URL 
         
-        var queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&genre=drama&r=json";
+        var queryURL = "https://www.omdbapi.com/?t=" + movie + "&y=&plot=short&genre=drama&r=json";
 
 
         //------
